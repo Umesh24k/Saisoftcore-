@@ -1,0 +1,79 @@
+:root {
+    --tally-blue: #0076c0;
+    --tally-dark: #004e92;
+    --tally-yellow: #ffcc00;
+}
+
+body { margin: 0; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+
+/* Dynamic Background */
+.dynamic-bg {
+    background: linear-gradient(-45deg, #004e92, #000428, #00d2ff, #0076c0);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+}
+@keyframes gradientMove { 0% {background-position:0% 50%} 50% {background-position:100% 50%} 100% {background-position:0% 50%} }
+
+/* 3D LOGO */
+.logo-3d {
+    color: white;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2);
+    transform: rotateX(10deg);
+}
+
+/* LAPTOP ANIMATION */
+.laptop-container {
+    perspective: 1000px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.laptop-screen {
+    width: 500px;
+    height: 320px;
+    background: #fff;
+    border: 12px solid #333;
+    border-radius: 10px;
+    transform: rotateX(-85deg);
+    transform-origin: bottom;
+    transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.laptop-container:hover .laptop-screen { transform: rotateX(0deg); }
+
+/* DASHBOARD COMPONENTS */
+.dash-nav { background: var(--tally-dark); padding: 15px 5%; display: flex; justify-content: space-between; color: white; position: sticky; top: 0; z-index: 100; }
+.dash-nav .logo span { color: var(--tally-yellow); font-weight: bold; }
+.main-content { padding: 30px 10%; }
+.card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 20px; transition: 0.3s; }
+.card:hover { transform: translateY(-5px); }
+
+/* GRIDS */
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+
+/* 3D BUTTONS */
+.btn-3d {
+    background: var(--tally-blue);
+    border: none;
+    border-bottom: 5px solid var(--tally-dark);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.1s;
+}
+.btn-3d:active { border-bottom: 0px; transform: translateY(5px); }
+
+/* CUSTOM CURSOR */
+.cursor {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--tally-yellow);
+    position: fixed; pointer-events: none;
+    box-shadow: 0 0 20px var(--tally-yellow);
+    z-index: 9999; display: none;
+}
